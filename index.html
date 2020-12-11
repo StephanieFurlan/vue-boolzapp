@@ -13,23 +13,52 @@
 
    <div id="app">
       <div id="chats-container">
-         <div id="header-left" class="header-top">
+         <div id="chats-container__header" class="header-top">
+            <div class="header-left">
+               <img class="avatar" :src="imgUrl + user.avatar + '.png'" alt="">
+               <p id="username">{{ user.name }}</p>
+            </div>
+            <div class="header-right">
+               <i class="fas fa-circle-notch"></i>
+               <i class="fas fa-comment-alt"></i>
+               <i class="fas fa-ellipsis-v"></i>
+            </div>
          </div>
          <div id="notifications">
-
+            <i class="fas fa-bell-slash circle-icon"></i>
+            <div id="notifications-text">
+               <p>Ricevi notifiche di nuovi messaggi</p>
+               <a href="#">Attiva notifiche desktop</a>
+            </div>
          </div>
          <div id="search">
-            <input id="search-input" type="text" placeholder="Cerca o inizia una nuova chat...">
+            <div id="search-input">
+               <i class="fas fa-search"></i>
+               <input type="text" placeholder="Cerca o inizia una nuova chat...">
+            </div>
+
          </div>
          <div id="contacts-container">
-               <div class="chat" v-for="chat in chats"> {{ chat.name }} </div>
-               <div class="chat" v-for="chat in chats"> {{ chat.name }} </div>
-               <div class="chat" v-for="chat in chats"> {{ chat.name }} </div>
+               <div :class="{active: activeChatIndex == index}" class="chat" v-for="(chat, index) in chats"> {{ chat.name }} </div>
+               <!-- <div class="chat" v-for="chat in chats"> {{ chat.name }} </div>
+               <div class="chat" v-for="chat in chats"> {{ chat.name }} </div> -->
          </div>
       </div>
-      <div id="right-container">
-         <div id="header-right" class="header-top">
+      <div id="current-chat__container">
+         <div id="current-chat__header" class="header-top">
+            <div class="header-left header-left__chat">
+               <img class="avatar" :src="imgUrl + chats[activeChatIndex].avatar + '.png'" alt="">
+               <div>
+                  <p>{{ chats[activeChatIndex].name }}</p>
+                  <p id="last-time-msg">Ultimo accesso oggi alle {{ chats[activeChatIndex].messages[0].date}}</p>
+               </div>
 
+            </div>
+            <div class="header-right">
+               <i class="fas fa-search"></i>
+               <i class="fas fa-paperclip"></i>
+               <i class="fas fa-ellipsis-v"></i>
+            </div>
          </div>
       </div>
    </div>

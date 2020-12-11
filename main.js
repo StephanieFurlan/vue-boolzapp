@@ -1,6 +1,12 @@
 new Vue({
    el:"#app",
    data: {
+      imgUrl: 'img/avatars/Avatar',
+      user: {
+         name: 'Nome Utente',
+         avatar: '_4'
+      },
+      activeChatIndex: 0,
       chats: [
       	{
       		name: 'Michele',

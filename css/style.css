@@ -6,6 +6,7 @@
 
 body {
    font-family: 'Roboto', sans-serif;
+   font-size: 14px;
 }
 
 
@@ -13,13 +14,13 @@ body {
 #app {
    height: 100vh;
    border: solid;
-   border-width: 20px 200px;
+   border-width: 20px 180px;
    border-image: linear-gradient(0deg, #DADCD5 85%, #019688 85%) 1;
    display: flex;
 }
 
 #chats-container {
-   width: 40%;
+   width: 35%;
    display: flex;
    flex-direction: column;
 }
@@ -28,24 +29,102 @@ body {
    flex-shrink: 0;
    height: 60px;
    background-color: #EAEAEA;
+   display: flex;
+   justify-content: space-between;
+   padding: 5px;
 }
+
+/* to delete */
+#chats-container__header {
+   display: flex;
+   justify-content: space-between;
+   padding: 5px;
+}
+
+.header-left {
+   height: 100%;
+   display: flex;
+   align-items: center;
+}
+
+#username {
+   font-weight: bold;
+   font-size: 14px;
+}
+
+.header-right {
+   height: 100%;
+   display: flex;
+   align-items: center;
+}
+
+.header-right i {
+   color: #B1B1B1;
+   margin: 0 10px;
+   font-size: 20px;
+}
+
+
 
 #notifications {
    flex-shrink: 0;
    height: 80px;
    background-color: #8EDAFC;
+   display: flex;
+   align-items: center;
+   padding: 20px;
 }
+
+#notifications-text {
+   margin-left: 10px;
+}
+
+#notifications-text a {
+   color: #7b8385;
+   font-size: 12px;
+}
+.circle-icon {
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    color: #8EDAFC;
+}
+
 
 #search {
    background-color: #F1F1F1;
    padding: 5px;
    flex-shrink: 0;
-
 }
+
 #search-input {
-   width: 100%;
-   padding: 10px;
+   display: flex;
+   align-items: center;
    border: 1px solid #ccc;
+   background-color: white;
+}
+
+#search-input input {
+   border: none;
+   width: 100%;
+   margin-right: 10px;
+   padding: 8px 10px;
+   font-size: 12px;
+}
+
+#search-input input:focus {
+   outline: none;
+}
+
+#search-input i {
+   color: #B1B1B1;
+
+   padding: 9px 20px;
+   border-right: 1px solid rgb(177,177,177,0.1);
 }
 
 #contacts-container {
@@ -54,13 +133,13 @@ body {
 
 
 
-#right-container {
+#current-chat__container {
    background-color: red;
-   width: 60%;
+   width: 65%;
 }
 
 
-#header-right {
+#current-chat__header {
    border-left: 1px solid #B1B1B1;
 }
 
@@ -68,4 +147,22 @@ body {
    height: 70px;
    background-color: #FFFFFF;
    border-top: 1px solid #B1B1B1;
+}
+
+.avatar {
+   height: 95%;
+   border-radius: 50%;
+   background-color: white;
+   padding: 5px;
+   margin-right: 10px;
+}
+
+.active {
+   background-color: red;
+}
+
+#last-time-msg {
+   color: #989898;
+   font-size: 10px;
+   margin-top: 5px;
 }
