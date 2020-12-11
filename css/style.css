@@ -1,0 +1,18 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   font-family: 'Roboto', sans-serif;
+}
+
+#main-container {
+   height: 100vh;
+   background-color: red;
+   border: solid blue;
+   border-width: 1vw 10vw;
+	border-image: linear-gradient(0deg, #DADCD5 85%, #019688 85%);
+	border-image-slice: 1;
+}
