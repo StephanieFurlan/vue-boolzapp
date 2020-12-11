@@ -92,5 +92,10 @@ new Vue({
       		],
       	},
       ]
+   },
+   methods: {
+      changeActiveChat(index) {
+         this.activeChatIndex = index;
+      }
    }
 })

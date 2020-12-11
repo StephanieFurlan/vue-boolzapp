@@ -39,26 +39,41 @@
 
          </div>
          <div id="contacts-container">
-               <div :class="{active: activeChatIndex == index}" class="chat" v-for="(chat, index) in chats"> {{ chat.name }} </div>
-               <!-- <div class="chat" v-for="chat in chats"> {{ chat.name }} </div>
-               <div class="chat" v-for="chat in chats"> {{ chat.name }} </div> -->
+            <div @click="changeActiveChat(index)"
+            :class="{active: activeChatIndex == index}"
+            class="chat" v-for="(chat, index) in chats">
+               <div class="chat-info">
+                  <img class="av" :src="imgUrl + chat.avatar + '.png'">
+                  <div>
+                     <p>{{chat.name}}</p>
+                     <p class="last-msg">{{chat.messages[0].text}}</p>
+                  </div>
+               </div>
+               <p class="last-time-msg">{{chat.messages[0].date}}</p>
+            </div>
+
          </div>
       </div>
       <div id="current-chat__container">
          <div id="current-chat__header" class="header-top">
-            <div class="header-left header-left__chat">
+            <div class="header-left">
                <img class="avatar" :src="imgUrl + chats[activeChatIndex].avatar + '.png'" alt="">
                <div>
                   <p>{{ chats[activeChatIndex].name }}</p>
-                  <p id="last-time-msg">Ultimo accesso oggi alle {{ chats[activeChatIndex].messages[0].date}}</p>
+                  <p class="last-time-msg">Ultimo accesso oggi alle {{ chats[activeChatIndex].messages[0].date}}</p>
                </div>
-
             </div>
             <div class="header-right">
                <i class="fas fa-search"></i>
                <i class="fas fa-paperclip"></i>
                <i class="fas fa-ellipsis-v"></i>
             </div>
+         </div>
+         <div id="chat-content"></div>
+         <div id="chat-input" class="message-area">
+            <i class="far fa-smile"></i>
+            <input type="text" placeholder="Scrivi un messaggio" name="" value="">
+            <i class="fas fa-microphone"></i>
          </div>
       </div>
    </div>

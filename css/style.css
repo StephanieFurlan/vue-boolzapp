@@ -34,12 +34,28 @@ body {
    padding: 5px;
 }
 
-/* to delete */
-#chats-container__header {
+.message-area {
+   height: 60px;
+   background-color: #F4EEEA;
    display: flex;
-   justify-content: space-between;
+   justify-content: space-around;
+   align-items: center;
    padding: 5px;
 }
+
+.message-area input {
+   width: 85%;
+   height: 90%;
+   border: none;
+   border-radius: 5px;
+   padding: 5px;
+}
+
+.message-area i {
+   font-size: 20px;
+   color: #6C7376;
+}
+
 
 .header-left {
    height: 100%;
@@ -136,19 +152,33 @@ body {
 #current-chat__container {
    background-color: red;
    width: 65%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
 }
 
 
 #current-chat__header {
    border-left: 1px solid #B1B1B1;
 }
-
+#contacts-container {
+   width: 100%;
+}
 .chat {
+   padding: 10px;
    height: 70px;
    background-color: #FFFFFF;
    border-top: 1px solid #B1B1B1;
+   display: flex;
+   justify-content: space-between;
 }
 
+
+.chat-info {
+   height: 100%;
+   display: flex;
+
+}
 .avatar {
    height: 95%;
    border-radius: 50%;
@@ -157,12 +187,30 @@ body {
    margin-right: 10px;
 }
 
-.active {
-   background-color: red;
+.av {
+   height: 95%;
+   border-radius: 50%;
+   background-color: white;
+   padding: 5px;
+   margin-right: 10px;
 }
 
-#last-time-msg {
+.active {
+   background-color: #EAEBEB;
+}
+
+.last-time-msg {
    color: #989898;
    font-size: 10px;
    margin-top: 5px;
+}
+
+.last-msg {
+   color: #989898;
+   font-size: 12px;
+}
+
+#chat-content {
+   flex: auto;
+   background-color: yellow;
 }
