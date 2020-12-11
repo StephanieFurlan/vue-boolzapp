@@ -8,11 +8,64 @@ body {
    font-family: 'Roboto', sans-serif;
 }
 
-#main-container {
+
+
+#app {
    height: 100vh;
+   border: solid;
+   border-width: 20px 200px;
+   border-image: linear-gradient(0deg, #DADCD5 85%, #019688 85%) 1;
+   display: flex;
+}
+
+#chats-container {
+   width: 40%;
+   display: flex;
+   flex-direction: column;
+}
+
+.header-top {
+   flex-shrink: 0;
+   height: 60px;
+   background-color: #EAEAEA;
+}
+
+#notifications {
+   flex-shrink: 0;
+   height: 80px;
+   background-color: #8EDAFC;
+}
+
+#search {
+   background-color: #F1F1F1;
+   padding: 5px;
+   flex-shrink: 0;
+
+}
+#search-input {
+   width: 100%;
+   padding: 10px;
+   border: 1px solid #ccc;
+}
+
+#contacts-container {
+   overflow-y: auto;
+}
+
+
+
+#right-container {
    background-color: red;
-   border: solid blue;
-   border-width: 1vw 10vw;
-	border-image: linear-gradient(0deg, #DADCD5 85%, #019688 85%);
-	border-image-slice: 1;
+   width: 60%;
+}
+
+
+#header-right {
+   border-left: 1px solid #B1B1B1;
+}
+
+.chat {
+   height: 70px;
+   background-color: #FFFFFF;
+   border-top: 1px solid #B1B1B1;
 }

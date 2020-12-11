@@ -11,8 +11,27 @@
    </head>
    <body>
 
-   <div id="main-container">
+   <div id="app">
+      <div id="chats-container">
+         <div id="header-left" class="header-top">
+         </div>
+         <div id="notifications">
 
+         </div>
+         <div id="search">
+            <input id="search-input" type="text" placeholder="Cerca o inizia una nuova chat...">
+         </div>
+         <div id="contacts-container">
+               <div class="chat" v-for="chat in chats"> {{ chat.name }} </div>
+               <div class="chat" v-for="chat in chats"> {{ chat.name }} </div>
+               <div class="chat" v-for="chat in chats"> {{ chat.name }} </div>
+         </div>
+      </div>
+      <div id="right-container">
+         <div id="header-right" class="header-top">
+
+         </div>
+      </div>
    </div>
    <script src="main.js" charset="utf-8"></script>
    </body>
