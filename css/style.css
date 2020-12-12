@@ -208,9 +208,53 @@ body {
 .last-msg {
    color: #989898;
    font-size: 12px;
+   width: 200px;
+   height: 20px;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
 }
 
 #chat-content {
    flex: auto;
    background-color: yellow;
+   padding: 20px 40px;
+   background-image: url("https://i.pinimg.com/originals/ab/ab/60/abab60f06ab52fa7846593e6ae0c9a0b.png");
+   overflow-y: auto;
+
+}
+
+.msg-box {
+   padding: 5px 0;
+   word-wrap: break-word;
+
+}
+
+.msg-box-sent{
+   text-align: right;
+}
+.msg-box-received {
+   text-align: left;
+}
+.msg {
+   padding: 10px 20px;
+   border-radius: 10px;
+   width: 40%;
+   display: inline-block;
+   text-align: left;
+}
+
+.msg-text {
+   margin-bottom: 5px;
+}
+.msg-date {
+   text-align: right;
+   font-size: 10px;
+   color: gray;
+}
+.sent {
+   background-color: #D5F9BA;
+}
+.received {
+   background-color: #FFFFFF;
 }

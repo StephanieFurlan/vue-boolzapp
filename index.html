@@ -7,6 +7,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+      <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
       <link rel="stylesheet" href="css/style.css">
    </head>
    <body>
@@ -46,10 +47,10 @@
                   <img class="av" :src="imgUrl + chat.avatar + '.png'">
                   <div>
                      <p>{{chat.name}}</p>
-                     <p class="last-msg">{{chat.messages[0].text}}</p>
+                     <p class="last-msg">{{chat.messages[chat.messages.length - 1].text}}</p>
                   </div>
                </div>
-               <p class="last-time-msg">{{chat.messages[0].date}}</p>
+               <p class="last-time-msg">{{chat.messages[chat.messages.length - 1].date}}</p>
             </div>
 
          </div>
@@ -69,10 +70,17 @@
                <i class="fas fa-ellipsis-v"></i>
             </div>
          </div>
-         <div id="chat-content"></div>
+         <div ref="chatContent" id="chat-content">
+            <div class="msg-box" :class="'msg-box-' + message.status" v-for="message in chats[activeChatIndex].messages">
+               <div class="msg" :class="message.status">
+                  <div class="msg-text">{{ message.text }}</div>
+                  <div class="msg-date">{{ message.date }}</div>
+               </div>
+            </div>
+         </div>
          <div id="chat-input" class="message-area">
             <i class="far fa-smile"></i>
-            <input type="text" placeholder="Scrivi un messaggio" name="" value="">
+            <input @keyup.enter="sendMessage($event)" type="text" placeholder="Scrivi un messaggio" name="" value="">
             <i class="fas fa-microphone"></i>
          </div>
       </div>

@@ -27,6 +27,51 @@ new Vue({
       				date: '10/01/2020 16:15:22',
       				text: 'Tutto fatto!',
       				status: 'received'
+      			},
+               {
+      				date: '10/01/2020 15:30:55',
+      				text: 'Hai portato a spasso il cane?',
+      				status: 'sent'
+      			},
+      			{
+      				date: '10/01/2020 15:50:00',
+      				text: 'Ricordati di dargli da mangiare',
+      				status: 'sent'
+      			},
+      			{
+      				date: '10/01/2020 16:15:22',
+      				text: 'Tutto fatto!',
+      				status: 'received'
+      			},
+               {
+      				date: '10/01/2020 15:30:55',
+      				text: 'Hai portato a spasso il cane?',
+      				status: 'sent'
+      			},
+      			{
+      				date: '10/01/2020 15:50:00',
+      				text: 'Ricordati di dargli da mangiare',
+      				status: 'sent'
+      			},
+      			{
+      				date: '10/01/2020 16:15:22',
+      				text: 'Tutto fatto!',
+      				status: 'received'
+      			},
+               {
+      				date: '10/01/2020 15:30:55',
+      				text: 'Hai portato a spasso il cane?',
+      				status: 'sent'
+      			},
+      			{
+      				date: '10/01/2020 15:50:00',
+      				text: 'Ricordati di dargli da mangiare',
+      				status: 'sent'
+      			},
+      			{
+      				date: '10/01/2020 16:15:22',
+      				text: 'Tutto fatto!',
+      				status: 'received'
       			}
       		],
       	},
@@ -96,6 +141,16 @@ new Vue({
    methods: {
       changeActiveChat(index) {
          this.activeChatIndex = index;
+      },
+      sendMessage(event) {
+         this.chats[this.activeChatIndex].messages.push({
+            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+            text: event.target.value,
+            status: 'sent'
+         });
+         event.target.value = "";
+         console.log(this.$refs);
       }
    }
+
 })
