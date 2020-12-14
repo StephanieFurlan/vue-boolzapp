@@ -6,7 +6,8 @@ new Vue({
          name: 'Nome Utente',
          avatar: '_4'
       },
-      activeChatIndex: 0,
+      currentChatIndex: 0,
+      searchText: "",
       chats: [
       	{
       		name: 'Michele',
@@ -15,7 +16,7 @@ new Vue({
       		messages: [
       			{
       				date: '10/01/2020 15:30:55',
-      				text: 'Hai portato a spasso il cane?',
+      				text: 'Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?Hai portato a spasso il cane?',
       				status: 'sent'
       			},
       			{
@@ -139,17 +140,36 @@ new Vue({
       ]
    },
    methods: {
-      changeActiveChat(index) {
-         this.activeChatIndex = index;
+      changeCurrentChat(index) {
+         this.currentChatIndex = index;
       },
       sendMessage(event) {
-         this.chats[this.activeChatIndex].messages.push({
+         this.chats[this.currentChatIndex].messages.push({
             date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
             text: event.target.value,
             status: 'sent'
          });
          event.target.value = "";
-         console.log(this.$refs);
+         this.responseMessage();
+      },
+      responseMessage() {
+         var self = this;
+         setTimeout(function () {
+            self.chats[self.currentChatIndex].messages.push({
+               date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+               text: 'OK',
+               status: 'received'
+            });
+         }, 1000)
+      }
+   },
+   computed: {
+      filterByName() {
+         return this.chats.filter(chat => {
+            if (chat.name.toLowerCase().includes(this.searchText.toLowerCase())) {
+               return chat;
+            }
+         })
       }
    }
 
