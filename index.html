@@ -42,20 +42,21 @@
             <div id="chats">
                <div
                class="chat clearfix"
-               v-show="chat.visible"
-               :class="{active: currentChatIndex == index}"
-               @click="changeCurrentChat(index)"
-               v-for="(chat, index) in filterByName">
+               v-show="chats[item].visible"
+               :class="{active: currentChatIndex == item}"
+               @click="changeCurrentChat(item)"
+               v-for="(item, index) in filterByName">
+
                   <div class="chat-left">
-                     <img class="avatar" :src="imgUrl + chat.avatar + '.png'">
+                     <img class="avatar" :src="imgUrl + chats[item].avatar + '.png'">
                      <div>
-                        <p>{{chat.name}}</p>
-                        <p class="last-msg">{{chat.messages[chat.messages.length - 1].text}}</p>
+                        <p>{{chats[item].name}}</p>
+                        <p class="last-msg">{{chats[item].messages[chats[item].messages.length - 1].text}}</p>
                      </div>
 
                   </div>
                   <div class="chat-right">
-                     <p class="last-visit">{{chat.messages[chat.messages.length - 1].date}}</p>
+                     <p class="last-visit">{{chats[item].messages[chats[item].messages.length - 1].date}}</p>
                   </div>
                </div>
 

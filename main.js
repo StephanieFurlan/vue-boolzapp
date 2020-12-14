@@ -165,11 +165,14 @@ new Vue({
    },
    computed: {
       filterByName() {
-         return this.chats.filter(chat => {
-            if (chat.name.toLowerCase().includes(this.searchText.toLowerCase())) {
-               return chat;
+         var filtered = [];
+         this.chats.forEach((chat, index) => {
+            if(chat.name.toLocaleLowerCase().includes(this.searchText)) {
+               filtered.push(index);
             }
          })
+         console.log(filtered);
+         return filtered
       }
    }
 

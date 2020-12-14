@@ -31,7 +31,6 @@ body {
 
 #right-col {
    width: 60%;
-   background-color: green;
    display: flex;
    flex-direction: column;
 }
@@ -85,7 +84,8 @@ body {
 .last-msg {
    color: #989898;
    font-size: 12px;
-   /* NEED TO SPECIFY SIZE */
+   white-space: nowrap;
+   width: 100px;
    overflow: hidden;
    text-overflow: ellipsis;
 }
@@ -161,16 +161,18 @@ body {
    float: left;
    height: 100%;
    display: flex;
+   width: 60%;
 }
 .chat-right {
    float: right;
    height: 100%;
+   width: 40%;
+   text-align: right;
 }
 
 
 #chat-content {
    flex: auto;
-   background-color: yellow;
    padding: 20px 40px;
    background-image: url("https://i.pinimg.com/originals/ab/ab/60/abab60f06ab52fa7846593e6ae0c9a0b.png");
    overflow-y: auto;
