@@ -164,7 +164,6 @@ new Vue({
          }, 1000)
       },
       deleteMessage(index) {
-         console.log(index);
          this.chats[this.currentChatIndex].messages.splice(index, 1);
       }
    },
