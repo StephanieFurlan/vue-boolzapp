@@ -54,7 +54,7 @@
                      </div>
                   </div>
                   <div class="chat-right">
-                     <p v-if="chats[index].messages.length != 0" class="last-visit">{{chats[index].messages[chats[index].messages.length - 1].date}}</p>
+                     <p class="last-visit">{{ lastVisits[index].lastVisit}}</p>
                   </div>
                </div>
 
@@ -69,7 +69,8 @@
                   <img class="avatar" :src="imgUrl + chats[currentChatIndex].avatar + '.png'" alt="">
                   <div>
                      <p>{{chats[currentChatIndex].name}}</p>
-                     <p v-if="chats[currentChatIndex].messages.length != 0" class="last-visit">Ultimo accesso oggi alle {{chats[currentChatIndex].messages[chats[currentChatIndex].messages.length - 1].date}}</p>
+                     <p class="last-visit">Ultimo accesso oggi alle {{ lastVisits[currentChatIndex].lastVisit}}</p>
+
                   </div>
                </div>
                <div class="header-right">

@@ -8,7 +8,7 @@ new Vue({
       },
       currentChatIndex: 0,
       searchText: "",
-      s: "show",
+      lastVisits: [],
       chats: [
       	{
       		name: 'Michele',
@@ -145,26 +145,32 @@ new Vue({
          this.currentChatIndex = index;
       },
       sendMessage(event) {
+         var date = dayjs().format('DD/MM/YYYY HH:mm:ss')
          this.chats[this.currentChatIndex].messages.push({
-            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+            date: date,
             text: event.target.value,
             status: 'sent'
          });
          event.target.value = "";
          this.responseMessage();
+
       },
       responseMessage() {
          var self = this;
+         var date = dayjs().format('DD/MM/YYYY HH:mm:ss')
+         this.lastVisits[this.currentChatIndex].lastVisit = date;
          setTimeout(function () {
             self.chats[self.currentChatIndex].messages.push({
-               date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+               date: date,
                text: 'OK',
                status: 'received'
             });
          }, 1000)
+         // console.log(this.lastVisits);
       },
       deleteMessage(index) {
          this.chats[this.currentChatIndex].messages.splice(index, 1);
+         console.log(this.lastVisits);
       }
    },
    computed: {
@@ -177,5 +183,13 @@ new Vue({
          })
          return filtered
       }
+   },
+   created: function() {
+      this.chats.forEach(chat => {
+         this.lastVisits.push({
+            lastVisit: chat.messages[chat.messages.length - 1].date
+         })
+      })
+      console.log(this.lastVisits);
    }
 })
