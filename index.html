@@ -42,21 +42,19 @@
             <div id="chats">
                <div
                class="chat clearfix"
-               v-show="chats[item].visible"
-               :class="{active: currentChatIndex == item}"
-               @click="changeCurrentChat(item)"
-               v-for="(item, index) in filterByName">
-
+               v-show="chats[index].visible"
+               :class="{active: currentChatIndex == index}"
+               @click="changeCurrentChat(index)"
+               v-for="index in filterByName">
                   <div class="chat-left">
-                     <img class="avatar" :src="imgUrl + chats[item].avatar + '.png'">
+                     <img class="avatar" :src="imgUrl + chats[index].avatar + '.png'">
                      <div>
-                        <p>{{chats[item].name}}</p>
-                        <p class="last-msg">{{chats[item].messages[chats[item].messages.length - 1].text}}</p>
+                        <p>{{chats[index].name}}</p>
+                        <p class="last-msg">{{chats[index].messages[chats[index].messages.length - 1].text}}</p>
                      </div>
-
                   </div>
                   <div class="chat-right">
-                     <p class="last-visit">{{chats[item].messages[chats[item].messages.length - 1].date}}</p>
+                     <p class="last-visit">{{chats[index].messages[chats[index].messages.length - 1].date}}</p>
                   </div>
                </div>
 
@@ -71,7 +69,7 @@
                   <img class="avatar" :src="imgUrl + chats[currentChatIndex].avatar + '.png'" alt="">
                   <div>
                      <p>{{chats[currentChatIndex].name}}</p>
-                     <p class="last-visit">Ultimo accesso oggi alle {{chats[currentChatIndex].messages[0].date}}</p>
+                     <p class="last-visit">Ultimo accesso oggi alle {{chats[currentChatIndex].messages[chats[currentChatIndex].messages.length - 1].date}}</p>
                   </div>
                </div>
                <div class="header-right">
@@ -82,13 +80,30 @@
             </div>
             <!-- Messages -->
             <div id="chat-content">
-               <div class="msg-box" :class="'msg-box-' + message.status" v-for="message in chats[currentChatIndex].messages">
-               <div class="msg" :class="message.status">
-                  <div class="msg-text">{{ message.text }}</div>
-                  <div class="msg-date">{{ message.date }}</div>
+               <div v-if="chats[currentChatIndex].messages.length > 0">
+               <div
+               class="msg-box"
+               :class="'msg-box-' + message.status"
+               v-for="(message, index) in chats[currentChatIndex].messages">
+                  <div class="msg" :class="message.status">
+                     <div class="msg-text">{{ message.text }}</div>
+                     <div class="msg-date">{{ message.date }}</div>
+                     <div class="message-info">
+                        <i @click="deleteMessage(index)" class="fas fa-chevron-down"></i>
+                        <ul class="delete">
+                           <li>
+                              Message info
+                           </li>
+                           <li @click="deleteMessage(index)">
+                              Delete message
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+
                </div>
-               <div  class="message-info"></div>
-            </div>
+               </div>
+
             </div>
             <!-- Char bar -->
             <div id="chat-bar">

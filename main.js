@@ -161,6 +161,15 @@ new Vue({
                status: 'received'
             });
          }, 1000)
+      },
+      show(index) {
+         // index dei messaggi
+         console.log(index);
+         // current message
+         console.log(this.chats[this.currentChatIndex].messages[index]);
+      },
+      deleteMessage(index) {
+         this.chats[this.currentChatIndex].messages.splice(index, 1);
       }
    },
    computed: {
@@ -171,9 +180,7 @@ new Vue({
                filtered.push(index);
             }
          })
-         console.log(filtered);
          return filtered
       }
    }
-
 })
