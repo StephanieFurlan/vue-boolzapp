@@ -50,11 +50,11 @@
                      <img class="avatar" :src="imgUrl + chats[index].avatar + '.png'">
                      <div>
                         <p>{{chats[index].name}}</p>
-                        <p class="last-msg">{{chats[index].messages[chats[index].messages.length - 1].text}}</p>
+                        <p v-if="chats[index].messages.length != 0" class="last-msg">{{chats[index].messages[chats[index].messages.length - 1].text}}</p>
                      </div>
                   </div>
                   <div class="chat-right">
-                     <p class="last-visit">{{chats[index].messages[chats[index].messages.length - 1].date}}</p>
+                     <p v-if="chats[index].messages.length != 0" class="last-visit">{{chats[index].messages[chats[index].messages.length - 1].date}}</p>
                   </div>
                </div>
 
@@ -69,7 +69,7 @@
                   <img class="avatar" :src="imgUrl + chats[currentChatIndex].avatar + '.png'" alt="">
                   <div>
                      <p>{{chats[currentChatIndex].name}}</p>
-                     <p class="last-visit">Ultimo accesso oggi alle {{chats[currentChatIndex].messages[chats[currentChatIndex].messages.length - 1].date}}</p>
+                     <p v-if="chats[currentChatIndex].messages.length != 0" class="last-visit">Ultimo accesso oggi alle {{chats[currentChatIndex].messages[chats[currentChatIndex].messages.length - 1].date}}</p>
                   </div>
                </div>
                <div class="header-right">
@@ -89,15 +89,18 @@
                      <div class="msg-text">{{ message.text }}</div>
                      <div class="msg-date">{{ message.date }}</div>
                      <div class="message-info">
-                        <i @click="deleteMessage(index)" class="fas fa-chevron-down"></i>
-                        <ul class="delete">
-                           <li>
-                              Message info
-                           </li>
-                           <li @click="deleteMessage(index)">
-                              Delete message
-                           </li>
-                        </ul>
+                        <div>
+                           <i @click="deleteMessage(index)" class="fas fa-chevron-down"></i>
+                           <ul class="delete">
+                              <li>
+                                 Message info
+                              </li>
+                              <li @click="deleteMessage(index)">
+                                 Delete message
+                              </li>
+                           </ul>
+                        </div>
+
                      </div>
                   </div>
 

@@ -8,6 +8,7 @@ new Vue({
       },
       currentChatIndex: 0,
       searchText: "",
+      s: "show",
       chats: [
       	{
       		name: 'Michele',
@@ -162,13 +163,8 @@ new Vue({
             });
          }, 1000)
       },
-      show(index) {
-         // index dei messaggi
-         console.log(index);
-         // current message
-         console.log(this.chats[this.currentChatIndex].messages[index]);
-      },
       deleteMessage(index) {
+         console.log(index);
          this.chats[this.currentChatIndex].messages.splice(index, 1);
       }
    },

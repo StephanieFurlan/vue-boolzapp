@@ -242,19 +242,23 @@ body {
    background-color: #FFFFFF;
 }
 
-.message-info > i {
+.message-info i {
    display: none;
    cursor: pointer;
 }
 
-.msg:hover .message-info > i {
+.msg:hover .message-info i {
    display: inline-block;
    position: absolute;
    right: 10px;
-   top: 5px;;
+   top: 5px;
 }
 
+.message-info > div:hover .delete {
+   display: block;
+}
 .delete {
+   z-index: 3;
    display: none;
    list-style-type: none;
    position: absolute;
@@ -267,4 +271,9 @@ body {
 
 .delete li {
    padding: 10px 15px;
+   cursor: pointer;
+}
+
+.delete li:hover {
+   color: gray;
 }
